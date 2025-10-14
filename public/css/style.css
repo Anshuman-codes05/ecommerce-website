@@ -2260,6 +2260,7 @@ main {
     height: 100vh;
     overflow: hidden;
     background: #000;
+    margin-bottom: 200px;
 }
 
 .video-container {
@@ -2275,32 +2276,17 @@ main {
     filter: brightness(0.8) contrast(1.1);
 }
 
-.about-video::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom,
-        rgba(0,0,0,0.1) 0%,
-        transparent 40%,
-        transparent 60%,
-        rgba(0,0,0,0.2) 100%);
-    pointer-events: none;
-    z-index: 1;
-}
-
 .about-hero-content {
     position: absolute;
-    bottom: 0;
+    bottom: -200px;
     left: 0;
     right: 0;
     text-align: center;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
-    padding: 2rem;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(15px);
+    padding: 3rem 2rem;
     z-index: 2;
+    border-radius: 0 0 20px 20px;
 }
 
 /* Footer */
@@ -2442,11 +2428,12 @@ footer p {
     /* About page mobile styles */
     .about-video {
         height: 60vh;
-        margin-bottom: 2rem;
+        margin-bottom: 150px;
     }
 
     .about-hero-content {
-        padding: 1.5rem;
+        bottom: -150px;
+        padding: 2rem 1rem;
     }
 
     .about-hero {
