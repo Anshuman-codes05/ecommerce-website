@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - nvrmnd</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">nvrmnd</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Products</a>
+                    <div class="dropdown-content">
+                        <a href="products.html?category=men">Men's</a>
+                        <a href="products.html?category=women">Women's</a>
+                    </div>
+                </li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="cart.html" class="icon-link cart-link" title="Cart">
+                    🛒<span class="cart-count" style="display: none;">0</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="auth">
+            <div class="auth-container">
+                <div class="auth-tabs">
+                    <button id="login-tab" class="auth-tabs-button active">Login</button>
+                    <button id="register-tab" class="auth-tabs-button">Register</button>
+                </div>
+
+                <!-- Login Form -->
+                <form id="login-form" class="auth-form active">
+                    <h2>Welcome Back</h2>
+                    <p class="auth-subtitle">Sign in to your account</p>
+
+                    <div class="form-group">
+                        <label for="login-email">Email Address</label>
+                        <input type="email" id="login-email" placeholder="Enter your email" required>
+                        <div class="input-icon">📧</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" placeholder="Enter your password" required>
+                        <div class="input-icon">🔒</div>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="remember-me">
+                            <span class="checkmark"></span>
+                            Remember me
+                        </label>
+                        <a href="#" class="forgot-password">Forgot Password?</a>
+                    </div>
+
+                    <button type="submit" class="btn auth-btn">
+                        <span class="btn-text">Sign In</span>
+                        <div class="btn-loading" style="display: none;"></div>
+                    </button>
+
+                    <div class="auth-divider">
+                        <span>or</span>
+                    </div>
+
+                    <div class="social-login">
+                        <button type="button" class="social-btn google-btn">
+                            <span class="social-icon">🌐</span>
+                            Continue with Google
+                        </button>
+                        <button type="button" class="social-btn facebook-btn">
+                            <span class="social-icon">📘</span>
+                            Continue with Facebook
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Register Form -->
+                <form id="register-form" class="auth-form">
+                    <h2>Create Account</h2>
+                    <p class="auth-subtitle">Join us today</p>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="register-first-name">First Name</label>
+                            <input type="text" id="register-first-name" placeholder="First name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-last-name">Last Name</label>
+                            <input type="text" id="register-last-name" placeholder="Last name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="register-email">Email Address</label>
+                        <input type="email" id="register-email" placeholder="Enter your email" required>
+                        <div class="input-icon">📧</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="register-password">Password</label>
+                        <input type="password" id="register-password" placeholder="Create a password" required minlength="8">
+                        <div class="input-icon">🔒</div>
+                        <div class="password-strength">
+                            <div class="strength-meter">
+                                <div class="strength-fill"></div>
+                            </div>
+                            <span class="strength-text">Password strength</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="register-confirm-password">Confirm Password</label>
+                        <input type="password" id="register-confirm-password" placeholder="Confirm your password" required>
+                        <div class="input-icon">🔒</div>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="terms-agree" required>
+                            <span class="checkmark"></span>
+                            I agree to the <a href="#" class="link">Terms & Conditions</a> and <a href="#" class="link">Privacy Policy</a>
+                        </label>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="newsletter-signup">
+                            <span class="checkmark"></span>
+                            Subscribe to our newsletter for exclusive offers
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn auth-btn">
+                        <span class="btn-text">Create Account</span>
+                        <div class="btn-loading" style="display: none;"></div>
+                    </button>
+
+                    <div class="auth-divider">
+                        <span>or</span>
+                    </div>
+
+                    <div class="social-login">
+                        <button type="button" class="social-btn google-btn">
+                            <span class="social-icon">🌐</span>
+                            Sign up with Google
+                        </button>
+                        <button type="button" class="social-btn facebook-btn">
+                            <span class="social-icon">📘</span>
+                            Sign up with Facebook
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 NVRMND by Anshuman. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

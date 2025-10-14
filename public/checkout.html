@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - nvrmnd</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">nvrmnd</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Products</a>
+                    <div class="dropdown-content">
+                        <a href="products.html?category=men">Men's</a>
+                        <a href="products.html?category=women">Women's</a>
+                    </div>
+                </li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="cart.html" class="icon-link cart-link" title="Cart">
+                    🛒<span class="cart-count" style="display: none;">0</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="checkout">
+            <!-- Progress Indicator -->
+            <div class="checkout-progress">
+                <div class="progress-step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Cart</div>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step active" data-step="2">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Details</div>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step" data-step="3">
+                    <div class="step-number">3</div>
+                    <div class="step-label">Payment</div>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step" data-step="4">
+                    <div class="step-number">4</div>
+                    <div class="step-label">Complete</div>
+                </div>
+            </div>
+
+            <div class="checkout-container">
+                <!-- Order Summary Sidebar -->
+                <div class="order-summary">
+                    <h3>Order Summary</h3>
+                    <div id="checkout-items">
+                        <!-- Items will be loaded dynamically -->
+                    </div>
+                    <div class="summary-total">
+                        <div class="subtotal">Subtotal: <span id="checkout-subtotal">$0.00</span></div>
+                        <div class="shipping">Shipping: <span id="checkout-shipping">Free</span></div>
+                        <div class="tax">Tax: <span id="checkout-tax">$0.00</span></div>
+                        <div class="total">Total: <span id="checkout-total">$0.00</span></div>
+                    </div>
+                </div>
+
+                <!-- Checkout Form -->
+                <div class="checkout-form-container">
+                    <h1>Checkout</h1>
+
+                    <!-- Guest Checkout Toggle -->
+                    <div class="checkout-options">
+                        <div class="option-tabs">
+                            <button id="guest-checkout-btn" class="option-tab active">Continue as Guest</button>
+                            <button id="login-checkout-btn" class="option-tab">Sign In</button>
+                        </div>
+                    </div>
+
+                    <form id="checkout-form">
+                        <div class="form-section">
+                            <h2>Shipping Information</h2>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="first-name">First Name</label>
+                                    <input type="text" id="first-name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="last-name">Last Name</label>
+                                    <input type="text" id="last-name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Street Address</label>
+                                <input type="text" id="address" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="city">City</label>
+                                    <input type="text" id="city" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="zip">ZIP Code</label>
+                                    <input type="text" id="zip" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="country">Country</label>
+                                <select id="country" required>
+                                    <option value="US">United States</option>
+                                    <option value="CA">Canada</option>
+                                    <option value="UK">United Kingdom</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h2>Payment Information</h2>
+                            <div class="form-group">
+                                <label for="payment-method">Payment Method</label>
+                                <select id="payment-method">
+                                    <option value="card">Credit/Debit Card</option>
+                                    <option value="paypal">PayPal</option>
+                                    <option value="apple-pay">Apple Pay</option>
+                                </select>
+                            </div>
+
+                            <div id="card-payment-fields">
+                                <div class="form-group">
+                                    <label for="card-number">Card Number</label>
+                                    <input type="text" id="card-number" placeholder="1234 5678 9012 3456" required>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="expiry">Expiry Date</label>
+                                        <input type="text" id="expiry" placeholder="MM/YY" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cvv">CVV</label>
+                                        <input type="text" id="cvv" placeholder="123" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="card-name">Name on Card</label>
+                                    <input type="text" id="card-name" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="checkout-actions">
+                            <button type="button" id="back-to-cart" class="btn secondary-btn">← Back to Cart</button>
+                            <button type="submit" class="btn primary-btn">Place Order</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 NVRMND by Anshuman. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

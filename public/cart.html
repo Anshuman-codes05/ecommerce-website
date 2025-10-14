@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - nvrmnd</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">nvrmnd</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Products</a>
+                    <div class="dropdown-content">
+                        <a href="products.html?category=men">Men's</a>
+                        <a href="products.html?category=women">Women's</a>
+                    </div>
+                </li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="cart">
+            <div class="cart-header">
+                <h1>Your Shopping Cart</h1>
+                <div class="cart-stats">
+                    <span id="cart-count">0 items</span>
+                </div>
+            </div>
+
+            <div id="cart-empty" class="cart-empty" style="display: none;">
+                <div class="empty-cart-icon">🛒</div>
+                <h2>Your cart is empty</h2>
+                <p>Looks like you haven't added anything to your cart yet.</p>
+                <a href="products.html" class="btn primary-btn">Start Shopping</a>
+            </div>
+
+            <div id="cart-content" class="cart-content">
+                <div class="cart-items" id="cart-items">
+                    <!-- Cart items will be loaded dynamically -->
+                </div>
+
+                <div class="cart-sidebar">
+                    <div class="cart-summary">
+                        <h3>Order Summary</h3>
+                        <div class="summary-row">
+                            <span>Subtotal:</span>
+                            <span id="cart-subtotal">$0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Shipping:</span>
+                            <span id="cart-shipping">Free</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Tax:</span>
+                            <span id="cart-tax">$0.00</span>
+                        </div>
+                        <div class="summary-row total-row">
+                            <span>Total:</span>
+                            <span id="cart-total">$0.00</span>
+                        </div>
+
+                        <div class="promo-code">
+                            <input type="text" id="promo-code" placeholder="Enter promo code" class="promo-input">
+                            <button id="apply-promo" class="btn secondary-btn">Apply</button>
+                        </div>
+
+                        <div class="cart-actions">
+                            <a href="checkout.html" id="checkout-btn" class="btn primary-btn full-width">
+                                Proceed to Checkout
+                            </a>
+                            <a href="products.html" class="btn secondary-btn full-width">
+                                Continue Shopping
+                            </a>
+                        </div>
+
+                        <div class="cart-benefits">
+                            <div class="benefit">
+                                <span class="benefit-icon">🚚</span>
+                                <span>Free shipping on orders over $100</span>
+                            </div>
+                            <div class="benefit">
+                                <span class="benefit-icon">↩️</span>
+                                <span>30-day return policy</span>
+                            </div>
+                            <div class="benefit">
+                                <span class="benefit-icon">🔒</span>
+                                <span>Secure checkout</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 NVRMND by Anshuman. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
