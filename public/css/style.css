@@ -2303,6 +2303,10 @@ footer p {
     #hero-video {
         object-fit: cover;
         height: 100vh;
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        left: 0;
     }
 
     header {
@@ -2357,11 +2361,24 @@ footer p {
     .video-description {
         top: 70%;
         max-width: 80%;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .video-description p {
         font-size: 0.9rem;
         letter-spacing: 0.5px;
+        text-align: center;
+    }
+
+    .video-heading {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: 2;
+        pointer-events: auto;
     }
 
     .hero {
