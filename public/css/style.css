@@ -2282,11 +2282,27 @@ main {
     left: 0;
     right: 0;
     text-align: center;
-    background: rgba(0, 0, 0, 0.9);
-    backdrop-filter: blur(15px);
-    padding: 3rem 2rem;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(20px);
+    padding: 4rem 2rem;
     z-index: 2;
-    border-radius: 0 0 20px 20px;
+    border-radius: 0 0 25px 25px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: none;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: heroTextFadeIn 1.5s ease-out 0.5s forwards;
+}
+
+@keyframes heroTextFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Footer */
@@ -2433,7 +2449,8 @@ footer p {
 
     .about-hero-content {
         bottom: -150px;
-        padding: 2rem 1rem;
+        padding: 3rem 1rem;
+        animation: heroTextFadeIn 1.5s ease-out 0.3s forwards;
     }
 
     .about-hero {
