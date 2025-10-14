@@ -2426,4 +2426,96 @@ footer p {
         font-size: 1rem;
         line-height: 1.6;
     }
+
+    /* About page mobile styles */
+    .about-video {
+        height: 60vh;
+        margin-bottom: 2rem;
+    }
+
+    .about-hero {
+        padding: 80px 1rem 60px;
+    }
+
+    .about-hero-content h1 {
+        font-size: 2.2rem;
+        letter-spacing: 3px;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+    }
+
+    .about-content {
+        padding: 2rem 1rem;
+    }
+
+    .philosophy-quote {
+        font-size: 1.4rem;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+    }
+
+    .about-philosophy p:last-child {
+        font-size: 1rem;
+    }
+
+    .about-mantra {
+        padding: 2rem 1rem;
+        margin-bottom: 3rem;
+    }
+
+    .about-mantra h2 {
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+        margin-bottom: 1.5rem;
+    }
+
+    .mantra-content p {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .about-essence h2 {
+        font-size: 1.6rem;
+        letter-spacing: 2px;
+        margin-bottom: 1.5rem;
+    }
+
+    .about-essence p {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .essence-traits {
+        gap: 1rem;
+        margin: 1.5rem 0;
+    }
+
+    .trait {
+        font-size: 1.3rem;
+        letter-spacing: 1px;
+    }
+
+    .essence-conclusion {
+        font-size: 1rem;
+    }
+
+    .about-signature {
+        padding: 2.5rem 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .about-signature h2 {
+        font-size: 2.5rem;
+        letter-spacing: 4px;
+        margin-bottom: 1.5rem;
+    }
+
+    .signature-tagline {
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+    }
 }
