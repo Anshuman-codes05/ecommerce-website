@@ -637,7 +637,7 @@ async function displayProducts(productList = null) {
                     </div>
                     <div class="product-actions">
                         <button class="btn" onclick="addToCart('${product._id || product.id}')">Add to Cart</button>
-                        <button class="btn wishlist-btn" onclick="addToWishlist('${product._id || product.id}')">❤️</button>
+                        <button class="btn wishlist-btn" onclick="addToWishlist('${product._id || product.id}')">🤍</button>
                     </div>
                 </div>
             `;
@@ -959,6 +959,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     await displayProducts();
     displayCart();
     createBackToTopButton();
+    updateWishlistButtons();
 
     // Apply URL-based filtering on page load
     filterProducts();
@@ -1487,15 +1488,19 @@ document.addEventListener('DOMContentLoaded', async function() {
     function addToWishlist(productId) {
         const product = products.find(p => p._id === productId || p.id === productId);
         if (product) {
-            const existingItem = wishlist.find(item => item._id === productId || item.id === productId);
-            if (!existingItem) {
+            const existingIndex = wishlist.findIndex(item => item._id === productId || item.id === productId);
+            if (existingIndex === -1) {
                 wishlist.push(product);
                 saveWishlist();
                 updateWishlistCount();
                 showNotification(`${product.name} added to wishlist!`, 'success');
             } else {
-                showNotification(`${product.name} is already in your wishlist`, 'info');
+                wishlist.splice(existingIndex, 1);
+                saveWishlist();
+                updateWishlistCount();
+                showNotification(`${product.name} removed from wishlist`, 'info');
             }
+            updateWishlistButtons();
         }
     }
 
@@ -1523,6 +1528,19 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     // Initialize wishlist count on all pages
     updateWishlistCount();
+
+    // Function to update wishlist button states
+    function updateWishlistButtons() {
+        const wishlistButtons = document.querySelectorAll('.wishlist-btn');
+        wishlistButtons.forEach(button => {
+            const productId = button.getAttribute('onclick').match(/addToWishlist\('([^']+)'\)/)?.[1];
+            if (productId) {
+                const isInWishlist = wishlist.some(item => item._id === productId || item.id === productId);
+                button.innerHTML = isInWishlist ? '❤️' : '🤍';
+                button.classList.toggle('in-wishlist', isInWishlist);
+            }
+        });
+    }
 
 
     // About page scroll animations
