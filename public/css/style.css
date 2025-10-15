@@ -2234,89 +2234,133 @@ main {
     animation: fadeInUp 1.5s ease-out 8s forwards;
 }
 
-/* About Story Section */
-.about-story {
-    padding: 6rem 2rem;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(10px);
-}
-
-.story-container {
+/* About Content Section */
+.about-content {
     max-width: 1200px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
+    padding: 4rem 2rem;
 }
 
-.story-text h2 {
-    font-size: 3rem;
+/* Brand Introduction */
+.brand-intro {
+    text-align: center;
+    margin-bottom: 6rem;
+    padding: 4rem 0;
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.brand-intro h1 {
+    font-size: 4rem;
     font-weight: 200;
     color: #000000;
-    letter-spacing: 4px;
+    letter-spacing: 6px;
     text-transform: uppercase;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     font-family: 'Times New Roman', serif;
     opacity: 0;
     animation: fadeInUp 1.5s ease-out 0.5s forwards;
 }
 
-.story-text p {
+.brand-tagline {
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: #666666;
+    letter-spacing: 2px;
+    font-style: italic;
+    margin-bottom: 3rem;
+    font-family: 'Georgia', serif;
+    opacity: 0;
+    animation: fadeInUp 1.5s ease-out 1s forwards;
+}
+
+.brand-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.brand-stats .stat {
+    text-align: center;
+    opacity: 0;
+    animation: fadeInUp 1.5s ease-out forwards;
+}
+
+.brand-stats .stat:nth-child(1) { animation-delay: 1.5s; }
+.brand-stats .stat:nth-child(2) { animation-delay: 2s; }
+.brand-stats .stat:nth-child(3) { animation-delay: 2.5s; }
+
+.brand-stats .stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    color: #000000;
+}
+
+.brand-stats .stat-label {
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #666666;
+}
+
+/* Story Section */
+.story-section {
+    margin-bottom: 6rem;
+    text-align: center;
+}
+
+.story-section h2 {
+    font-size: 2.5rem;
+    font-weight: 200;
+    color: #000000;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+    font-family: 'Times New Roman', serif;
+    opacity: 0;
+    animation: fadeInUp 1.5s ease-out 0.5s forwards;
+}
+
+.story-content p {
     font-size: 1.2rem;
     font-weight: 300;
     color: #333333;
     line-height: 1.8;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
     font-family: 'Georgia', serif;
     opacity: 0;
     animation: fadeInUp 1.5s ease-out forwards;
 }
 
-.story-text p:nth-child(2) { animation-delay: 1s; }
-.story-text p:nth-child(3) { animation-delay: 1.5s; }
+.story-content p:nth-child(1) { animation-delay: 1s; }
+.story-content p:nth-child(2) { animation-delay: 1.5s; }
 
-.story-image {
-    opacity: 0;
-    animation: fadeInUp 1.5s ease-out 1s forwards;
-}
-
-.image-placeholder {
-    width: 100%;
-    height: 400px;
-    background: linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.05) 100%);
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    font-weight: 300;
-    color: #666666;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-/* About Philosophy Section */
-.about-philosophy {
-    padding: 6rem 2rem;
+/* Philosophy Section */
+.philosophy-section {
+    margin-bottom: 6rem;
+    padding: 4rem 0;
     background: rgba(0, 0, 0, 0.95);
     color: white;
+    border-radius: 20px;
 }
 
-.philosophy-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.about-philosophy h2 {
-    font-size: 3.5rem;
+.philosophy-section h2 {
+    font-size: 2.5rem;
     font-weight: 200;
-    letter-spacing: 6px;
+    letter-spacing: 4px;
     text-transform: uppercase;
     margin-bottom: 4rem;
     font-family: 'Times New Roman', serif;
+    text-align: center;
     opacity: 0;
     animation: fadeInUp 1.5s ease-out 0.5s forwards;
 }
@@ -2324,7 +2368,9 @@ main {
 .philosophy-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 3rem;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .philosophy-item {
@@ -2332,7 +2378,7 @@ main {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    text-align: center;
     transition: all 0.3s ease;
     opacity: 0;
     animation: fadeInUp 1.5s ease-out forwards;
@@ -2344,46 +2390,39 @@ main {
 .philosophy-item:nth-child(4) { animation-delay: 1.6s; }
 
 .philosophy-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px);
     background: rgba(255, 255, 255, 0.1);
 }
 
 .philosophy-icon {
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-bottom: 1rem;
 }
 
 .philosophy-item h3 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 400;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     text-transform: uppercase;
     margin-bottom: 1rem;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .philosophy-item p {
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 300;
     opacity: 0.9;
     font-family: 'Georgia', serif;
 }
 
-/* About Values Section */
-.about-values {
-    padding: 6rem 2rem;
-    background: rgba(255, 255, 255, 0.98);
-}
-
-.values-container {
-    max-width: 1200px;
-    margin: 0 auto;
+/* Values Section */
+.values-section {
+    margin-bottom: 6rem;
     text-align: center;
 }
 
-.about-values h2 {
-    font-size: 3rem;
+.values-section h2 {
+    font-size: 2.5rem;
     font-weight: 200;
     color: #000000;
     letter-spacing: 4px;
@@ -2397,8 +2436,10 @@ main {
 .values-content {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    gap: 4rem;
-    align-items: center;
+    gap: 3rem;
+    align-items: start;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .value-quote {
@@ -2407,28 +2448,29 @@ main {
 }
 
 .value-quote blockquote {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 300;
     font-style: italic;
     color: #000000;
     line-height: 1.6;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     font-family: 'Georgia', serif;
     position: relative;
+    text-align: left;
 }
 
 .value-quote blockquote::before {
     content: '"';
-    font-size: 4rem;
+    font-size: 3rem;
     position: absolute;
-    top: -20px;
-    left: -30px;
+    top: -15px;
+    left: -20px;
     color: rgba(0, 0, 0, 0.1);
     font-family: 'Times New Roman', serif;
 }
 
 .value-quote cite {
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 400;
     color: #666666;
     font-style: normal;
@@ -2438,14 +2480,15 @@ main {
 .values-list {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .value-item {
-    padding: 2rem;
+    padding: 1.5rem;
     background: rgba(0, 0, 0, 0.05);
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.1);
+    text-align: left;
     opacity: 0;
     animation: fadeInUp 1.5s ease-out forwards;
 }
@@ -2455,7 +2498,7 @@ main {
 .value-item:nth-child(3) { animation-delay: 1.9s; }
 
 .value-item h4 {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-weight: 500;
     color: #000000;
     margin-bottom: 0.5rem;
@@ -2464,28 +2507,24 @@ main {
 }
 
 .value-item p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 300;
     color: #666666;
     margin: 0;
     font-family: 'Georgia', serif;
 }
 
-/* About CTA Section */
-.about-cta {
-    padding: 6rem 2rem;
+/* CTA Section */
+.cta-section {
+    padding: 4rem 0;
     background: rgba(0, 0, 0, 0.95);
     color: white;
     text-align: center;
+    border-radius: 20px;
 }
 
-.cta-container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.about-cta h2 {
-    font-size: 3rem;
+.cta-section h2 {
+    font-size: 2.5rem;
     font-weight: 200;
     letter-spacing: 4px;
     text-transform: uppercase;
@@ -2495,10 +2534,10 @@ main {
     animation: fadeInUp 1.5s ease-out 0.5s forwards;
 }
 
-.about-cta p {
-    font-size: 1.2rem;
+.cta-section p {
+    font-size: 1.1rem;
     font-weight: 300;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
     opacity: 0.9;
     font-family: 'Georgia', serif;
     opacity: 0;
@@ -2507,30 +2546,28 @@ main {
 
 .cta-button {
     display: inline-block;
-    padding: 1.2rem 3rem;
+    padding: 1rem 2.5rem;
     background: rgba(255, 255, 255, 0.1);
     color: white;
     text-decoration: none;
     border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 30px;
-    font-size: 1rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
     font-weight: 400;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     text-transform: uppercase;
     transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
     opacity: 0;
     animation: fadeInUp 1.5s ease-out 1.5s forwards;
 }
 
 .cta-button:hover {
     background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
 }
 
-/* About Hero Section */
-.about-hero {
+/* About Video Section */
+.about-video {
     position: relative;
     width: 100%;
     height: 100vh;
@@ -2539,120 +2576,17 @@ main {
     margin-bottom: 0;
 }
 
-.hero-video-container {
+.video-container {
     position: relative;
     width: 100%;
     height: 100%;
 }
 
-.about-hero video {
+.about-video video {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.6) contrast(1.2) saturate(0.8);
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg,
-        rgba(0,0,0,0.7) 0%,
-        rgba(0,0,0,0.4) 50%,
-        rgba(0,0,0,0.7) 100%);
-    z-index: 1;
-}
-
-.hero-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    z-index: 2;
-    color: white;
-    max-width: 1200px;
-    width: 90%;
-    opacity: 0;
-    animation: heroFadeIn 2s ease-out 0.5s forwards;
-}
-
-.hero-content h1 {
-    font-size: 6rem;
-    font-weight: 200;
-    letter-spacing: 8px;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-    font-family: 'Times New Roman', serif;
-}
-
-.hero-tagline {
-    font-size: 1.8rem;
-    font-weight: 300;
-    letter-spacing: 3px;
-    margin-bottom: 3rem;
-    font-style: italic;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-    font-family: 'Georgia', serif;
-}
-
-.hero-stats {
-    display: flex;
-    justify-content: center;
-    gap: 4rem;
-    margin-top: 2rem;
-}
-
-.stat {
-    text-align: center;
-    opacity: 0;
-    animation: statFadeIn 1s ease-out forwards;
-}
-
-.stat:nth-child(1) { animation-delay: 1.5s; }
-.stat:nth-child(2) { animation-delay: 2s; }
-.stat:nth-child(3) { animation-delay: 2.5s; }
-
-.stat-number {
-    display: block;
-    font-size: 3rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-    margin-bottom: 0.5rem;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-}
-
-.stat-label {
-    font-size: 0.9rem;
-    font-weight: 400;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    opacity: 0.8;
-}
-
-@keyframes heroFadeIn {
-    from {
-        opacity: 0;
-        transform: translate(-50%, -50%) translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translate(-50%, -50%) translateY(0);
-    }
-}
-
-@keyframes statFadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    filter: brightness(0.8) contrast(1.1);
 }
 
 /* Footer */
@@ -2792,71 +2726,73 @@ footer p {
     }
 
     /* About page mobile styles */
-    .about-hero {
-        height: 70vh;
+    .about-video {
+        height: 60vh;
     }
 
-    .hero-content h1 {
-        font-size: 3rem;
-        letter-spacing: 4px;
+    .about-content {
+        padding: 2rem 1rem;
     }
 
-    .hero-tagline {
-        font-size: 1.2rem;
-        letter-spacing: 2px;
-        margin-bottom: 2rem;
+    .brand-intro {
+        padding: 2rem 1rem;
+        margin-bottom: 4rem;
     }
 
-    .hero-stats {
-        gap: 2rem;
-        flex-wrap: wrap;
-    }
-
-    .stat-number {
-        font-size: 2rem;
-    }
-
-    .stat-label {
-        font-size: 0.8rem;
-    }
-
-    .about-story {
-        padding: 4rem 1rem;
-    }
-
-    .story-container {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-
-    .story-text h2 {
+    .brand-intro h1 {
         font-size: 2.5rem;
         letter-spacing: 3px;
     }
 
-    .story-text p {
+    .brand-tagline {
         font-size: 1.1rem;
-        line-height: 1.7;
+        letter-spacing: 1px;
+        margin-bottom: 2rem;
     }
 
-    .image-placeholder {
-        height: 300px;
-        font-size: 1.2rem;
+    .brand-stats {
+        gap: 1.5rem;
+        flex-wrap: wrap;
     }
 
-    .about-philosophy {
-        padding: 4rem 1rem;
+    .brand-stats .stat-number {
+        font-size: 1.8rem;
     }
 
-    .about-philosophy h2 {
-        font-size: 2.5rem;
-        letter-spacing: 4px;
-        margin-bottom: 3rem;
+    .brand-stats .stat-label {
+        font-size: 0.8rem;
+    }
+
+    .story-section {
+        margin-bottom: 4rem;
+    }
+
+    .story-section h2 {
+        font-size: 2rem;
+        letter-spacing: 2px;
+        margin-bottom: 2rem;
+    }
+
+    .story-content p {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+
+    .philosophy-section {
+        margin-bottom: 4rem;
+        padding: 2rem 1rem;
+    }
+
+    .philosophy-section h2 {
+        font-size: 2rem;
+        letter-spacing: 2px;
+        margin-bottom: 2rem;
     }
 
     .philosophy-grid {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 1.5rem;
     }
 
     .philosophy-item {
@@ -2864,66 +2800,76 @@ footer p {
     }
 
     .philosophy-icon {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     .philosophy-item h3 {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
     }
 
-    .about-values {
-        padding: 4rem 1rem;
+    .philosophy-item p {
+        font-size: 0.9rem;
     }
 
-    .about-values h2 {
-        font-size: 2.5rem;
-        letter-spacing: 3px;
-        margin-bottom: 3rem;
+    .values-section {
+        margin-bottom: 4rem;
+    }
+
+    .values-section h2 {
+        font-size: 2rem;
+        letter-spacing: 2px;
+        margin-bottom: 2rem;
     }
 
     .values-content {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 2rem;
     }
 
     .value-quote blockquote {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
+        text-align: center;
     }
 
     .value-quote blockquote::before {
-        font-size: 3rem;
-        top: -15px;
-        left: -20px;
+        font-size: 2rem;
+        top: -10px;
+        left: -15px;
     }
 
     .values-list {
-        gap: 1.5rem;
+        gap: 1rem;
     }
 
     .value-item {
-        padding: 1.5rem;
+        padding: 1rem;
+        text-align: center;
     }
 
     .value-item h4 {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
-    .about-cta {
-        padding: 4rem 1rem;
+    .value-item p {
+        font-size: 0.85rem;
     }
 
-    .about-cta h2 {
-        font-size: 2.5rem;
-        letter-spacing: 3px;
+    .cta-section {
+        padding: 2rem 1rem;
     }
 
-    .about-cta p {
-        font-size: 1.1rem;
+    .cta-section h2 {
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
+
+    .cta-section p {
+        font-size: 1rem;
         margin-bottom: 2rem;
     }
 
     .cta-button {
-        padding: 1rem 2rem;
-        font-size: 0.9rem;
+        padding: 0.8rem 2rem;
+        font-size: 0.8rem;
     }
 }
