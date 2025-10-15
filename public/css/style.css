@@ -2566,6 +2566,168 @@ main {
     transform: translateY(-2px);
 }
 
+/* Gender Selection Modal */
+#genderModal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    animation: fadeIn 0.3s ease-out;
+}
+
+#genderModal .modal-content {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    margin: 10% auto;
+    padding: 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 90%;
+    max-width: 600px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.5s ease-out;
+    text-align: center;
+}
+
+#genderModal .close {
+    color: #aaa;
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1001;
+}
+
+#genderModal .close:hover {
+    color: #000;
+    transform: scale(1.1);
+}
+
+#genderModal h2 {
+    font-size: 2.5rem;
+    font-weight: 200;
+    color: #000000;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+    font-family: 'Times New Roman', serif;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 0.3s forwards;
+}
+
+.gender-options-modal {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.gender-option {
+    display: block;
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    padding: 2rem;
+    text-decoration: none;
+    color: #000000;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.gender-option:nth-child(1) { animation-delay: 0.5s; }
+.gender-option:nth-child(2) { animation-delay: 0.7s; }
+
+.gender-option:hover {
+    transform: translateY(-5px);
+    background: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.gender-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.gender-option h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.gender-option p {
+    font-size: 0.9rem;
+    font-weight: 300;
+    opacity: 0.8;
+    font-family: 'Georgia', serif;
+    margin: 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px) scale(0.9); opacity: 0; }
+    to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile styles for modal */
+@media (max-width: 768px) {
+    #genderModal .modal-content {
+        margin: 15% auto;
+        padding: 2rem 1.5rem;
+        width: 95%;
+    }
+
+    #genderModal h2 {
+        font-size: 2rem;
+        letter-spacing: 2px;
+        margin-bottom: 2rem;
+    }
+
+    .gender-options-modal {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .gender-option {
+        padding: 1.5rem;
+    }
+
+    .gender-icon {
+        font-size: 2.5rem;
+    }
+
+    .gender-option h3 {
+        font-size: 1.3rem;
+    }
+}
+
 /* About Video Section */
 .about-video {
     position: relative;

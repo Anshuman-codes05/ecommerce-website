@@ -1498,8 +1498,34 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Initialize wishlist count on all pages
     updateWishlistCount();
 
+    // Gender Selection Modal Functions
+    function openGenderModal() {
+        document.getElementById('genderModal').style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeGenderModal() {
+        document.getElementById('genderModal').style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+        const modal = document.getElementById('genderModal');
+        if (event.target == modal) {
+            closeGenderModal();
+        }
+    }
+
+    // Close modal on escape key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closeGenderModal();
+        }
+    });
+
     // About page scroll animations
-    if (document.querySelector('.about-hero')) {
+    if (document.querySelector('.about-video')) {
         // Intersection Observer for about page animations
         const observerOptions = {
             threshold: 0.1,
@@ -1515,28 +1541,9 @@ document.addEventListener('DOMContentLoaded', async function() {
         }, observerOptions);
 
         // Observe about page elements
-        const aboutElements = document.querySelectorAll('.about-philosophy, .about-mantra, .about-essence, .about-signature');
+        const aboutElements = document.querySelectorAll('.story-section, .philosophy-section, .values-section, .cta-section');
         aboutElements.forEach(element => {
             observer.observe(element);
-        });
-
-        // Parallax effect for about hero
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.about-hero');
-            if (hero) {
-                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
-        });
-
-        // Mouse follow effect for about hero
-        document.addEventListener('mousemove', function(e) {
-            const hero = document.querySelector('.about-hero');
-            if (hero) {
-                const mouseX = e.clientX / window.innerWidth;
-                const mouseY = e.clientY / window.innerHeight;
-                hero.style.backgroundPosition = `${mouseX * 50}% ${mouseY * 50}%`;
-            }
         });
     }
 });

@@ -131,7 +131,27 @@
             <div class="cta-section">
                 <h2>Experience NVRMND</h2>
                 <p>Discover the collection that speaks for itself</p>
-                <a href="products.html" class="cta-button">Explore Collection</a>
+                <button class="cta-button" onclick="openGenderModal()">Explore Collection</button>
+            </div>
+
+            <!-- Gender Selection Modal -->
+            <div id="genderModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeGenderModal()">&times;</span>
+                    <h2>Choose Your Collection</h2>
+                    <div class="gender-options-modal">
+                        <a href="products.html?category=men" class="gender-option" onclick="closeGenderModal()">
+                            <div class="gender-icon">👔</div>
+                            <h3>Men's Collection</h3>
+                            <p>Timeless pieces for the modern gentleman</p>
+                        </a>
+                        <a href="products.html?category=women" class="gender-option" onclick="closeGenderModal()">
+                            <div class="gender-icon">👗</div>
+                            <h3>Women's Collection</h3>
+                            <p>Elegant designs for the discerning woman</p>
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
