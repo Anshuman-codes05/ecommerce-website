@@ -1485,22 +1485,62 @@ document.addEventListener('DOMContentLoaded', async function() {
         localStorage.setItem('wishlist', JSON.stringify(wishlist));
     }
 
-    function addToWishlist(productId) {
-        const product = products.find(p => p._id === productId || p.id === productId);
-        if (product) {
+    async function addToWishlist(productId) {
+        if (!token) {
+            showNotification('Please login to add items to your wishlist', 'error');
+            return;
+        }
+
+        try {
             const existingIndex = wishlist.findIndex(item => item._id === productId || item.id === productId);
-            if (existingIndex === -1) {
-                wishlist.push(product);
-                saveWishlist();
-                updateWishlistCount();
-                showNotification(`${product.name} added to wishlist!`, 'success');
+            const isInWishlist = existingIndex !== -1;
+
+            if (isInWishlist) {
+                // Remove from wishlist
+                const response = await fetch(`/api/wishlist/${productId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    wishlist.splice(existingIndex, 1);
+                    saveWishlist();
+                    updateWishlistCount();
+                    showNotification('Removed from wishlist', 'info');
+                } else {
+                    showNotification('Failed to remove from wishlist', 'error');
+                }
             } else {
-                wishlist.splice(existingIndex, 1);
-                saveWishlist();
-                updateWishlistCount();
-                showNotification(`${product.name} removed from wishlist`, 'info');
+                // Add to wishlist
+                const response = await fetch('/api/wishlist', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ productId })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    const product = data.products.find(p => p._id === productId || p.id === productId);
+                    if (product) {
+                        wishlist.push(product);
+                        saveWishlist();
+                        updateWishlistCount();
+                        showNotification(`${product.name} added to wishlist!`, 'success');
+                    }
+                } else {
+                    showNotification('Failed to add to wishlist', 'error');
+                }
             }
             updateWishlistButtons();
+        } catch (error) {
+            console.error('Wishlist error:', error);
+            showNotification('An error occurred. Please try again.', 'error');
         }
     }
 
@@ -1529,17 +1569,100 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Initialize wishlist count on all pages
     updateWishlistCount();
 
+    // Initialize product details page wishlist functionality
+    if (document.querySelector('.product-details')) {
+        initializeProductDetailsWishlist();
+    }
+
+    // Load user wishlist on page load if logged in
+    if (token) {
+        loadUserWishlist();
+    }
+
     // Function to update wishlist button states
     function updateWishlistButtons() {
         const wishlistButtons = document.querySelectorAll('.wishlist-btn');
         wishlistButtons.forEach(button => {
-            const productId = button.getAttribute('onclick').match(/addToWishlist\('([^']+)'\)/)?.[1];
+            const productId = button.getAttribute('onclick')?.match(/addToWishlist\('([^']+)'\)/)?.[1] ||
+                             button.getAttribute('data-product-id');
             if (productId) {
                 const isInWishlist = wishlist.some(item => item._id === productId || item.id === productId);
                 button.innerHTML = isInWishlist ? '❤️' : '🤍';
                 button.classList.toggle('in-wishlist', isInWishlist);
             }
         });
+    }
+
+    // Function to initialize product details page wishlist functionality
+    function initializeProductDetailsWishlist() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id');
+
+        if (productId) {
+            // Load product details
+            loadProductDetails(productId);
+
+            // Set up wishlist button
+            const wishlistBtn = document.getElementById('add-to-wishlist');
+            if (wishlistBtn) {
+                wishlistBtn.setAttribute('data-product-id', productId);
+                wishlistBtn.addEventListener('click', () => addToWishlist(productId));
+            }
+
+            // Set up add to cart button
+            const addToCartBtn = document.getElementById('add-to-cart');
+            if (addToCartBtn) {
+                addToCartBtn.addEventListener('click', () => addToCart(productId));
+            }
+        }
+    }
+
+    // Function to load product details
+    async function loadProductDetails(productId) {
+        try {
+            const response = await fetch(`/api/products/${productId}`);
+            if (response.ok) {
+                const product = await response.json();
+                displayProductDetails(product);
+            } else {
+                console.error('Failed to load product details');
+            }
+        } catch (error) {
+            console.error('Error loading product details:', error);
+        }
+    }
+
+    // Function to display product details
+    function displayProductDetails(product) {
+        document.getElementById('product-name').textContent = product.name;
+        document.getElementById('product-price').textContent = `$${product.price.toFixed(2)}`;
+        document.getElementById('product-description').textContent = product.description;
+        document.getElementById('product-img').src = product.image;
+        document.getElementById('product-img').alt = product.name;
+
+        // Update wishlist button state
+        updateWishlistButtons();
+    }
+
+    // Function to load user wishlist from server
+    async function loadUserWishlist() {
+        try {
+            const response = await fetch('/api/wishlist', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                wishlist = data.products || [];
+                saveWishlist();
+                updateWishlistCount();
+                updateWishlistButtons();
+            }
+        } catch (error) {
+            console.error('Error loading wishlist:', error);
+        }
     }
 
 
