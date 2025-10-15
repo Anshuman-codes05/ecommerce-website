@@ -4,6 +4,32 @@ let user = null;
 let token = localStorage.getItem('token');
 let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
 
+// Gender Selection Modal Functions
+function openGenderModal() {
+    document.getElementById('genderModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeGenderModal() {
+    document.getElementById('genderModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+    const modal = document.getElementById('genderModal');
+    if (event.target == modal) {
+        closeGenderModal();
+    }
+}
+
+// Close modal on escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeGenderModal();
+    }
+});
+
 // Utility functions for animations and interactions
 function showNotification(message, type = 'success') {
     const notification = document.createElement('div');
@@ -1498,31 +1524,6 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Initialize wishlist count on all pages
     updateWishlistCount();
 
-    // Gender Selection Modal Functions
-    function openGenderModal() {
-        document.getElementById('genderModal').style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeGenderModal() {
-        document.getElementById('genderModal').style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-
-    // Close modal when clicking outside
-    window.onclick = function(event) {
-        const modal = document.getElementById('genderModal');
-        if (event.target == modal) {
-            closeGenderModal();
-        }
-    }
-
-    // Close modal on escape key
-    document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
-            closeGenderModal();
-        }
-    });
 
     // About page scroll animations
     if (document.querySelector('.about-video')) {
